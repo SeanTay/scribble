@@ -1,0 +1,16 @@
+<h2>Posts</h2>
+
+<h3>Title: <%= @post.title %></h3>
+
+<p><%= @post.body %></p>
+
+<%= link_to "Back to Index", posts_path %>
+<%= link_to "Delete", post_path(@post), method: :delete %>
+
+<h2>Add Comments</h2>
+
+<%= link_to "Add new comment", new_comment_path(post_id: @post.id) %>
+
+  <% @post.comments.each do |comment| %>
+        <%= comment.body %>
+  <% end %>
